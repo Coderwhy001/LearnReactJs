@@ -1,4 +1,5 @@
 import React,{Component,Fragment} from 'react'
+import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 class Xiaojiejie extends Component{
@@ -6,10 +7,44 @@ class Xiaojiejie extends Component{
     super(props)
     this.state={
       inputValue:'',
-      list:['基础按摩','精油推背']
+      list:[]
     }
   }
+
+  componentDidMount(){
+    axios.get('https://mock.cangdu.org/mock/5e5370e027f1ca4d62175802/example/xiaojiejie')
+      .then((res)=>{
+        console.log('axios 获取数据成功'+JSON.stringify(res))
+        this.setState({
+          list: res.data.data
+        })
+      })
+      .catch((error)=>{console.log('axios 获取数据失败' + error)})
+  }
+  
+  // componentWillMount(){
+  //   console.log('componentWillMount---组件将要挂载到页面的时刻')
+  // }
+
+  // componentDidMount(){
+  //   console.log('componentDidMount---组件挂在完成的时刻')
+  // }
+
+  // shouldComponentUpdate(){
+  //   console.log('shouldComponentUpdate---组件更新之前')
+  //   return true
+  // }
+  // componentWillUpdate(){
+  //   console.log('componentWillUpdate')
+  // }
+  // componentDidUpdate(){
+  //   console.log('componentDidUpdate')
+  // }
+  // componentWillReceiveProps(){
+  //   console.log('componentWillReceiveProps')
+  // }
   render() {
+    // console.log('挂载中')
     return (
       <Fragment>
         {/* 第一次写注释 */}
@@ -61,7 +96,7 @@ class Xiaojiejie extends Component{
       list:[...this.state.list,this.state.inputValue],
       inputValue: ''
     },()=>{
-      console.log(this.ul.querySelectorAll('li').length)
+      // console.log(this.ul.querySelectorAll('li').length)
     })
   }
   deleteItem(index){

@@ -5,8 +5,18 @@ class XiaojiejieItem extends Component {
     super(props) // 更改this指向
     this.handleClick = this.handleClick.bind(this)
   }
+
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextProps.content!==this.props.content){
+      return true
+    }else{
+      return false
+    }
+  }
+
   state = {  }
   render() { 
+    console.log('child-render')
     return ( 
     <li onClick={this.handleClick}>
      {this.props.avname}为你服务-{this.props.content}
