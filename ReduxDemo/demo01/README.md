@@ -1,0 +1,1 @@
+- store是仓库 reducer是仓库管理员
