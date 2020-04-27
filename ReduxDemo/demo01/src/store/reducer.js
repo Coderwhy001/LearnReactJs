@@ -1,13 +1,8 @@
-
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes' 
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from './actionTypes' 
 
 const defaultState = {
   inputValue : 'Write Something',
-  list: [
-    '早8点开晨会， 分配今天的代码任务',
-    '早9点和项目经理开需求沟通会',
-    '晚五点组织人员进行Review代码'
-  ]
+  list: []
 }
 export default (state = defaultState, action) => {
   // console.log(state, action)
@@ -31,5 +26,12 @@ export default (state = defaultState, action) => {
     newState.list.splice(action.index, 1)
     return newState
   }
+
+  if (action.type === GET_LIST) {
+    let newState = JSON.parse(JSON.stringify(state))
+    newState.list = action.data.data.list
+    return newState
+  }
+
   return state
 }
