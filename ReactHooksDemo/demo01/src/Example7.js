@@ -20,7 +20,7 @@ function ChildComponent({name, children}) {
   }
   const actionXiaohong = useMemo(()=>changeXiaohong(name),[name])
   return (
-    <>
+    <>  
       <div>{actionXiaohong}</div>
       <div>{children}</div>
     </>
