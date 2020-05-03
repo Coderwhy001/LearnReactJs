@@ -13,7 +13,7 @@ module.exports = appInfo => {
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1588423390489_2150';
+  config.keys = appInfo.name + '_1588407358133_6249';
 
   // add your middleware config here
   config.middleware = [];
@@ -23,24 +23,27 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
   config.mysql = {
-    // database configuration
-    client: {
-      // host
-      host: 'localhost',
-      // port
-      port: '3306',
-      // username
-      user: 'root',
-      // password
-      password: '123456',
-      // database
-      database: 'react_blog',    
+    client:{
+      host:'localhost',
+      port:'3306',
+      user:'root',
+      database:'react_blog',
+      password:'123456',
     },
-    // load into app, default is open
-    app: true,
-    // load into agent, default is close
-    agent: false,
+    app:true,
+    agent:false
   };
+
+  config.security = { // 跨域的配置
+    scrf: {
+      enable: false
+    },
+    domainWhiteList: ['*']
+  };
+  config.cors = { // 跨域配置
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  }
 
   return {
     ...config,
