@@ -32,19 +32,18 @@ module.exports = appInfo => {
     },
     app:true,
     agent:false
-  };
-
-  config.security = { // 跨域的配置
-    scrf: {
-      enable: false
-    },
-    domainWhiteList: ['*']
-  };
-  config.cors = { // 跨域配置
-    origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   }
-
+  config.security = {
+    csrf:{
+      enable:false
+    },
+    domainWhiteList:['*']
+  }
+  config.cors = {
+    origin:'http://localhost:3000',
+    credentials:true, // cook跨域
+    allowMethods:'GET,HEAD,PUT,DELETE,PATCH,OPTIONS'
+  }
   return {
     ...config,
     ...userConfig,
