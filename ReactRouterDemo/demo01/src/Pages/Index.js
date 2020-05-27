@@ -12,6 +12,7 @@ class Index extends Component {
       ]
     }
     this.props.history.push("/home/")// 重定向的编程式写法
+    console.log(this.props)
   }
   render() { 
     return ( 
