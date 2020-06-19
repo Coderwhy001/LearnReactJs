@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 class XiaojiejieItem extends Component {
   constructor(props){
     super(props) // 更改this指向
+    console.log(this.props)
     this.handleClick = this.handleClick.bind(this)
   }
 
