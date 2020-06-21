@@ -24,6 +24,7 @@ function walk(oldNode, newNode, index, patches) {
   } else if (oldNode.type === newNode.type) {
       // 比较属性是否有更改
       let attr = diffAttr(oldNode.props, newNode.props);
+      console.log(attr)
       if (Object.keys(attr).length > 0) {
           current.push({ type: 'ATTR', attr });
       }
