@@ -23,7 +23,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-three-renderer": "^3.2.4",
-    "three": "^0.79.0"
+    "three": "^0.125.0"
   },
   "name": "react-three",
   "description": "webjl 3D 渲染 canvas  3d\r   react + three.js  组件化开发 可视化应用",
